@@ -1,5 +1,7 @@
+import Route from "./router/Route";
+
 function App() {
-  return <div className="text-5xl">Hi</div>;
+  return <Route />;
 }
 
 export default App;
