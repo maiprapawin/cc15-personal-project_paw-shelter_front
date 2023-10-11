@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import HowToAdoptPage from "../pages/HowToAdoptPage";
 import AdminPage from "../pages/AdminPage";
 import { RouterProvider } from "react-router-dom";
+import RedirectIfAuthenticated from "../features/auth/RedirectIfAuthenticated";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: (
+      <RedirectIfAuthenticated>
+        <LoginPage />
+      </RedirectIfAuthenticated>
+    ),
   },
   {
     path: "/",
