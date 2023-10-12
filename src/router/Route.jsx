@@ -8,10 +8,11 @@ import HowToAdoptPage from "../pages/HowToAdoptPage";
 import AdminPage from "../pages/AdminPage";
 import { RouterProvider } from "react-router-dom";
 import RedirectIfAuthenticated from "../features/auth/RedirectIfAuthenticated";
+import Authenticated from "../features/auth/Authenticated";
 
 const router = createBrowserRouter([
   {
-    path: "/main",
+    path: "/",
     element: <MainPage />,
   },
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
+    //ถ้า user มีค่า = redirect to home
     element: (
       <RedirectIfAuthenticated>
         <LoginPage />
@@ -28,7 +30,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Layout />,
+    //ต้องลอคอินผ่านก่อน ถึงจะเข้าหน้าพวกนี้ได้
+    element: (
+      <Authenticated>
+        <Layout />
+      </Authenticated>
+    ),
     children: [
       { path: "home", element: <HomePage /> },
       { path: "how-to-adopt", element: <HowToAdoptPage /> },
