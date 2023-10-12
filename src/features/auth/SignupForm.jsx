@@ -128,7 +128,7 @@ export default function SignupForm() {
         )}
         <br />
         <div className="flex justify-center">
-          <ButtonYellow name="Sign Up" />
+          <ButtonYellow action="Sign Up" />
         </div>
       </div>
     </form>

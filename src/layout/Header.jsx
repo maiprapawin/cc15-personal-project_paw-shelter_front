@@ -1,3 +1,24 @@
+import { FaPaw } from "react-icons/fa";
+import Menu from "./Menu";
+import ButtonYellow from "../features/auth/ButtonYellow";
+import { useAuth } from "../hooks/use-auth";
+
 export default function Header() {
-  return <h1>Header</h1>;
+  const { logout } = useAuth();
+
+  return (
+    <header className="bg-[#FB7185] flex justify-between h-[80px] sticky top-0">
+      <div className="flex">
+        <FaPaw />
+        <div>
+          <h1>Paw Shelter</h1>
+          <h3>a shelter for homeless dogs</h3>
+        </div>
+      </div>
+      <Menu />
+      <div onClick={logout}>
+        <ButtonYellow action="Log Out" />
+      </div>
+    </header>
+  );
 }

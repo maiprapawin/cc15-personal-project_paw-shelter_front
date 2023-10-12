@@ -43,7 +43,7 @@ export default function LoginForm() {
         />
         <br />
         <div className="flex justify-center">
-          <ButtonYellow name="Log In" />
+          <ButtonYellow action="Log In" />
         </div>
       </div>
     </form>

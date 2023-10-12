@@ -1,3 +1,3 @@
 export default function AdminPage() {
-  return <h1>AdminPage</h1>;
+  return <div className="bg-[#FDE047] h-[1200px]">Table</div>;
 }
