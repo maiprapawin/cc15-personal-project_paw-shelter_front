@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ButtonPinkLong from "../features/auth/ButtonPinkLong";
 import SignupContent from "../features/auth/SignupContent";
 import SignupForm from "../features/auth/SignupForm";
@@ -9,7 +10,9 @@ export default function SignupPage() {
       <div className="flex flex-col justify-center items-center bg-[#7DD3FC]">
         <SignupForm />
         <div className="mt-10">
-          <ButtonPinkLong text="Already have an account?" action="Log In" />
+          <Link to="/login">
+            <ButtonPinkLong text="Already have an account?" action="Log In" />
+          </Link>
         </div>
       </div>
     </div>

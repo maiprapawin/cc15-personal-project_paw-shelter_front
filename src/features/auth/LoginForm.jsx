@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import ButtonYellow from "./ButtonYellow";
 import InputBox from "./InputBox";
 import { useAuth } from "../../hooks/use-auth";
@@ -9,11 +10,14 @@ export default function LoginForm() {
     password: "",
   });
 
-  const { login } = useAuth();
+  const { login } = useAuth(); // obj = {login: login}
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    login(input); //credential ไปที่ AuthContext
+    //เรียกใช้ function login => input = credential ไปที่ AuthContext
+    login(input).catch((err) => {
+      toast.error(err.response.data.message);
+    });
   };
 
   return (

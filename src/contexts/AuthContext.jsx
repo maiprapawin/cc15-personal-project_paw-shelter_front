@@ -28,17 +28,19 @@ export default function AuthContextProvider({ children }) {
 
   const login = async (credential) => {
     // credential = input จาก LoginForm
-    try {
-      const res = await axios.post("/auth/login", credential);
-      addAccessToken(res.data.accessToken);
-      setAuthUser(res.data.user);
-    } catch (err) {
-      console.log(err);
-    }
+    const res = await axios.post("/auth/login", credential);
+    addAccessToken(res.data.accessToken);
+    setAuthUser(res.data.user);
+  };
+
+  const register = async (registerInputObject) => {
+    const res = await axios.post("/auth/register", registerInputObject);
+    addAccessToken(res.data.accessToken);
+    setAuthUser(res.data.user);
   };
 
   return (
-    <AuthContext.Provider value={{ login, authUser, initialLoading }}>
+    <AuthContext.Provider value={{ login, authUser, initialLoading, register }}>
       {children}
     </AuthContext.Provider>
   );
