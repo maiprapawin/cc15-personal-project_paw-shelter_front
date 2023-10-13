@@ -59,7 +59,7 @@ export default function SignupForm() {
     }
     setError({});
     //จากนั้นต้อง send req ไปที่ server
-    register(input); //registerInputObject ใน AuthContext
+    register(input); //เรียกใช้ fn register ส่งก้อน input ไป (= registerInputObject ใน AuthContext)
   };
 
   return (

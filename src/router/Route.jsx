@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import SignupPage from "../pages/SignupPage";
 import LoginPage from "../pages/LoginPage";
@@ -6,13 +7,14 @@ import Layout from "../layout/Layout";
 import HomePage from "../pages/HomePage";
 import HowToAdoptPage from "../pages/HowToAdoptPage";
 import AdminPage from "../pages/AdminPage";
-import { RouterProvider } from "react-router-dom";
+import AdminCreatePage from "../pages/AdminCreatePage";
+import AdminEditPage from "../pages/AdminEditPage";
 import RedirectIfAuthenticated from "../features/auth/RedirectIfAuthenticated";
 import Authenticated from "../features/auth/Authenticated";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/main",
     element: <MainPage />,
   },
   {
@@ -41,9 +43,11 @@ const router = createBrowserRouter([
       </Authenticated>
     ),
     children: [
-      { path: "home", element: <HomePage /> },
+      { path: "/", element: <HomePage /> },
       { path: "how-to-adopt", element: <HowToAdoptPage /> },
       { path: "admin", element: <AdminPage /> },
+      { path: "admin/create", element: <AdminCreatePage /> },
+      { path: "admin/edit", element: <AdminEditPage /> },
     ],
   },
 ]);

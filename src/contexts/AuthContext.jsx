@@ -30,15 +30,20 @@ export default function AuthContextProvider({ children }) {
     }
   }, []);
 
+  //////// FUNCTION LOGIC /////////
+  // เรียกใช้ Fn พวกนี้เมื่อกด submit form
+
   const login = async (credential) => {
     // credential = input จาก LoginForm
-    const res = await axios.post("/auth/login", credential);
+    const res = await axios.post("/auth/login", credential); //axios.post จะ send req ไปหา server
+    //accessToken กับ user ได้มาจาก res จากฝั่ง backend
+    //front & back ต้องใช้คำสะกดให้ตรงกัน (accessToken, user)
     addAccessToken(res.data.accessToken);
     setAuthUser(res.data.user);
   };
 
   const register = async (registerInputObject) => {
-    const res = await axios.post("/auth/register", registerInputObject);
+    const res = await axios.post("/auth/register", registerInputObject); //มันจะวิ่งไปที่ auth-controller ของฝั่ง backend
     addAccessToken(res.data.accessToken);
     setAuthUser(res.data.user);
   };
