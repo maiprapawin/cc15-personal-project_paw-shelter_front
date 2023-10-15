@@ -9,7 +9,7 @@ export default function HomeBanner() {
   };
   return (
     <div
-      className="flex flex-col justify-start text-center pt-32 gap-4"
+      className="flex flex-col justify-start text-center pt-28 gap-4"
       style={sectionStyle}
     >
       <h1 className="font-bold text-6xl text-[#7E22CE]">HELLO HOOMAN!</h1>
