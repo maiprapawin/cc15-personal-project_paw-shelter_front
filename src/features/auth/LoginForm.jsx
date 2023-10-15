@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import ButtonYellow from "./ButtonYellow";
+import Button from "./Button";
 import InputBox from "./InputBox";
 import { useAuth } from "../../hooks/use-auth";
 
@@ -43,7 +43,7 @@ export default function LoginForm() {
         />
         <br />
         <div className="flex justify-center">
-          <ButtonYellow action="Log In" />
+          <Button action="Log In" />
         </div>
       </div>
     </form>

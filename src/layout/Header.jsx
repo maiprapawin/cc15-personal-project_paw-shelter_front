@@ -1,6 +1,6 @@
 import { FaPaw } from "react-icons/fa";
 import Menu from "./Menu";
-import ButtonYellow from "../features/auth/ButtonYellow";
+import Button from "../features/auth/Button";
 import { useAuth } from "../hooks/use-auth";
 
 export default function Header() {
@@ -17,7 +17,7 @@ export default function Header() {
       </div>
       <Menu />
       <div onClick={logout}>
-        <ButtonYellow action="Log Out" />
+        <Button action="Log Out" />
       </div>
     </header>
   );

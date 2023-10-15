@@ -7,5 +7,6 @@ export default function Authenticated({ children }) {
   if (!authUser) {
     return <Navigate to="/login" />;
   }
+
   return children;
 }

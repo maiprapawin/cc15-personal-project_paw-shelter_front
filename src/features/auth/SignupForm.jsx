@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ButtonYellow from "./ButtonYellow";
+import Button from "./Button";
 import InputBox from "./InputBox";
 import Joi from "joi";
 import InputErrorMessage from "./InputErrorMessage";
@@ -128,7 +128,7 @@ export default function SignupForm() {
         )}
         <br />
         <div className="flex justify-center">
-          <ButtonYellow action="Sign Up" />
+          <Button action="Sign Up" />
         </div>
       </div>
     </form>
