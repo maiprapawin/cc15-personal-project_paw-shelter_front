@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react";
 import DogCard from "../features/dog/DogCard";
 import HomeBanner from "../features/dog/HomeBanner";
+import axios from "axios";
 
 export default function HomePage() {
+  const [allDogs, setAllDogs] = useState([]);
+  useEffect(() => {
+    axios
+      .get("/dog/read")
+      .then((res) => {
+        setAllDogs(res.data.dogs);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div>
       <HomeBanner />
@@ -11,15 +25,9 @@ export default function HomePage() {
             Available Dogs for Adoption
           </h2>
           <div className="grid grid-cols-3 pb-28">
-            <DogCard />
-            <DogCard />
-            <DogCard />
-            <DogCard />
-            <DogCard />
-            <DogCard />
-            <DogCard />
-            <DogCard />
-            <DogCard />
+            {allDogs.map((el) => (
+              <DogCard key={el.id} dogObj={el} />
+            ))}
           </div>
         </div>
       </div>
