@@ -3,7 +3,7 @@ import { AiFillHeart } from "react-icons/ai";
 export default function DogCardHeader({ image }) {
   return (
     <>
-      <div className=" flex justify-end text-[30px] bg-red-300 text-white">
+      <div className="text-[30px] text-white absolute ml-[300px] mt-2">
         <AiFillHeart />
       </div>
 
