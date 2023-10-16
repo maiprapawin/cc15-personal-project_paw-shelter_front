@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       { path: "how-to-adopt", element: <HowToAdoptPage /> },
       { path: "admin", element: <AdminPage /> },
       { path: "admin/create", element: <AdminCreatePage /> },
-      { path: "admin/edit", element: <AdminEditPage /> },
+      { path: "admin/edit/:dogId", element: <AdminEditPage /> },
     ],
   },
 ]);

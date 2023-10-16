@@ -1,6 +1,4 @@
-import Button from "../auth/Button";
-
-export default function AdminTableBody({ dogObj }) {
+export default function AdminTableBody({ dogObj = "null", button }) {
   return (
     <tbody>
       <tr>
@@ -9,10 +7,7 @@ export default function AdminTableBody({ dogObj }) {
         <td>{dogObj.gender}</td>
         <td>{dogObj.breed}</td>
         <td>{dogObj.description}</td>
-        <td>
-          <Button bg="bg-[#00B633]" text="text-white" action="Edit" />
-          <Button bg="bg-[#FD0000]" text="text-white" action="Delete" />
-        </td>
+        <td>{button}</td>
       </tr>
     </tbody>
   );
