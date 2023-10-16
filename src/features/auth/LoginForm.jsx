@@ -10,7 +10,7 @@ export default function LoginForm() {
     password: "",
   });
 
-  const { login } = useAuth(); // obj = {login: login}
+  const { login } = useAuth();
 
   const handleSubmitForm = (e) => {
     e.preventDefault();

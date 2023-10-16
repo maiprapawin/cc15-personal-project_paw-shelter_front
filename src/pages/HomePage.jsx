@@ -1,20 +1,21 @@
-import { useEffect, useState } from "react";
 import DogCard from "../features/dog/DogCard";
 import HomeBanner from "../features/dog/HomeBanner";
-import axios from "axios";
+import useDog from "../hooks/use-dog";
 
 export default function HomePage() {
-  const [allDogs, setAllDogs] = useState([]);
-  useEffect(() => {
-    axios
-      .get("/dog/read")
-      .then((res) => {
-        setAllDogs(res.data.dogs);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // const [allDogs, setAllDogs] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("/dog/read")
+  //     .then((res) => {
+  //       setAllDogs(res.data.dogs);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
+  const { allDogs } = useDog();
 
   return (
     <div>

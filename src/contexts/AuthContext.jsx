@@ -53,11 +53,9 @@ export default function AuthContextProvider({ children }) {
     setAuthUser(null);
   };
 
+  const sharedObj = { login, authUser, initialLoading, register, logout };
+
   return (
-    <AuthContext.Provider
-      value={{ login, authUser, initialLoading, register, logout }}
-    >
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={sharedObj}>{children}</AuthContext.Provider>
   );
 }
