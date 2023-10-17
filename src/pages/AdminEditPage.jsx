@@ -3,6 +3,7 @@ import Button from "../features/auth/Button";
 import useDog from "../hooks/use-dog";
 import { useEffect, useState } from "react";
 import axios from "../config/axios";
+import InputBox from "../features/auth/InputBox";
 
 export default function AdminEditPage() {
   const { dogId } = useParams();
@@ -45,6 +46,9 @@ export default function AdminEditPage() {
       console.log(err);
     }
   };
+  const handleChangeInput = (e) => {
+    setOneDog({ ...oneDog, [e.target.name]: e.target.value });
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -70,11 +74,10 @@ export default function AdminEditPage() {
                 Dog Image
               </label>
               <img src={oneDog.dogImage} alt={oneDog.dogName} />
-              <input
-                className="w-full"
-                id="dogImage"
+              <InputBox
                 type="file"
                 accept="image/*"
+                name="dogImage"
                 onChange={handleImageChange}
               />
             </div>
@@ -85,15 +88,12 @@ export default function AdminEditPage() {
               >
                 Dog Name
               </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="dogName"
+              <InputBox
                 type="text"
                 placeholder={oneDog.dogName}
+                name="dogName"
                 value={oneDog.dogName || ""}
-                onChange={(e) =>
-                  setOneDog({ ...oneDog, dogName: e.target.value })
-                }
+                onChange={handleChangeInput}
               />
             </div>
             <div className="mb-6">
@@ -103,15 +103,12 @@ export default function AdminEditPage() {
               >
                 Gender
               </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="gender"
+              <InputBox
                 type="text"
                 placeholder={oneDog.gender}
+                name="gender"
                 value={oneDog.gender || ""}
-                onChange={(e) =>
-                  setOneDog({ ...oneDog, gender: e.target.value })
-                }
+                onChange={handleChangeInput}
               />
             </div>
             <div className="mb-6">
@@ -121,15 +118,12 @@ export default function AdminEditPage() {
               >
                 Breed
               </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="breed"
+              <InputBox
                 type="text"
                 placeholder={oneDog.breed}
+                name="breed"
                 value={oneDog.breed || ""}
-                onChange={(e) =>
-                  setOneDog({ ...oneDog, breed: e.target.value })
-                }
+                onChange={handleChangeInput}
               />
             </div>
             <div className="mb-6">
@@ -139,14 +133,11 @@ export default function AdminEditPage() {
               >
                 Description
               </label>
-              <textarea
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="description"
+              <InputBox
                 placeholder={oneDog.description}
+                name="description"
                 value={oneDog.description || ""}
-                onChange={(e) =>
-                  setOneDog({ ...oneDog, description: e.target.value })
-                }
+                onChange={handleChangeInput}
               />
             </div>
             <div className="flex items-center justify-between">
