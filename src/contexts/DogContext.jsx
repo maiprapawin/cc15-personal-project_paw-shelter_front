@@ -17,7 +17,14 @@ export default function DogContextProvider({ children }) {
   // 1. CREATE dog
   const createDog = async (newDogData) => {
     try {
-      const res = await axios.post("/dog/create", newDogData);
+      const formData = new FormData();
+      formData.append("dogImage", newDogData.dogImage);
+      formData.append("dogName", newDogData.dogName);
+      formData.append("gender", newDogData.gender);
+      formData.append("breed", newDogData.breed);
+      formData.append("description", newDogData.description);
+
+      const res = await axios.post("/dog/create", formData);
       setAllDogs((prev) => [...prev, res.data.dog]); //เพิ่มข้อมูล dog ใหม่ โดยไม่กระทบ dogs เดิม (prev = current allDogs state)
     } catch (err) {
       console.log(err);
@@ -53,6 +60,7 @@ export default function DogContextProvider({ children }) {
   // 3. UPDATE dog
   const updateDog = async (updatedDogData) => {
     try {
+      // FormData API (Builtin JS API) มันจะสร้าง obj ที่มี key value เก็บข้อมูลที่เป็น binary หรือไฟล์ได้ เอาไว้สำหรับ send req ที่เป็น file
       const formData = new FormData();
       formData.append("id", updatedDogData.id);
       formData.append("dogName", updatedDogData.dogName);
@@ -69,46 +77,11 @@ export default function DogContextProvider({ children }) {
         formData
       );
       setAllDogs({ ...allDogs, ...res.dogData }); //อัพเดทข้อมูล dog จากที่มีอยู่
-      console.log(formData);
+      // console.log(formData);
     } catch (err) {
       console.log(err);
     }
   };
-
-  // const updateDog = async (updatedDogData) => {
-  //   try {
-  //     const formData = new FormData();
-  //     formData.append("id", updatedDogData.id);
-  //     formData.append("dogName", updatedDogData.dogName);
-  //     formData.append("gender", updatedDogData.gender);
-  //     formData.append("breed", updatedDogData.breed);
-  //     formData.append("description", updatedDogData.description);
-
-  //     if (updatedDogData.dogImage) {
-  //       formData.append("dogImage", updatedDogData.dogImage);
-  //     }
-
-  //     const res = await axios.patch(
-  //       `/dog/update/${updatedDogData.id}`,
-  //       formData
-  //     );
-
-  //     // Assuming the response contains the updated dog data
-  //     const updatedDog = res.data.dog;
-
-  //     // Update the dogs in your state based on the updated dog's ID
-  //     const updatedDogs = allDogs.map((dog) =>
-  //       dog.id === updatedDog.id ? updatedDog : dog
-  //     );
-
-  //     // Update the state with the new dogs array
-  //     setAllDogs(updatedDogs);
-
-  //     console.log(formData);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   // 4. DELETE dog
   const deleteDog = async (dogId) => {

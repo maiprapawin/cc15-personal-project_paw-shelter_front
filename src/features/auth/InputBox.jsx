@@ -6,6 +6,7 @@ export default function InputBox({
   onChange,
   name,
   hasError,
+  accept,
 }) {
   return (
     <input
@@ -20,6 +21,7 @@ export default function InputBox({
       value={value}
       onChange={onChange}
       name={name}
+      accept={accept}
     />
   );
 }

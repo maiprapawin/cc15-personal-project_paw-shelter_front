@@ -10,7 +10,11 @@ export default function AdminTable() {
   return (
     <table>
       <AdminTableHeader
-        button={<Button bg="bg-[#0369A1]" text="text-white" action="Create" />}
+        button={
+          <Link to={"/admin/create"}>
+            <Button bg="bg-[#0369A1]" text="text-white" action="Create" />
+          </Link>
+        }
       />
       {allDogs.map((el) => (
         <AdminTableBody
@@ -18,7 +22,7 @@ export default function AdminTable() {
           dogObj={el}
           button={
             <>
-              <Link to={`/admin/edit/${el.id}`} state={el}>
+              <Link to={`/admin/edit/${el.id}`}>
                 <Button bg="bg-[#00B633]" text="text-white" action="Edit" />
               </Link>
               <Button bg="bg-[#FD0000]" text="text-white" action="Delete" />

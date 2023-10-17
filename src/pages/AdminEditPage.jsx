@@ -1,8 +1,5 @@
-// import { Link, useLocation, useParams } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 import Button from "../features/auth/Button";
-// import AdminTableHeader from "../features/admin/AdminTableHeader";
-// import AdminTableBody from "../features/admin/AdminTableBody";
 import useDog from "../hooks/use-dog";
 import { useEffect, useState } from "react";
 import axios from "../config/axios";
@@ -10,15 +7,6 @@ import axios from "../config/axios";
 export default function AdminEditPage() {
   const { dogId } = useParams();
   const { updateDog } = useDog();
-
-  // const currentDogData = useLocation().state || {
-  //   dogName: "",
-  //   gender: "",
-  //   breed: "",
-  //   description: "",
-  // };
-
-  // const [oneDog, setOneDog] = useState(currentDogData);
 
   const [oneDog, setOneDog] = useState({
     dogName: "",
@@ -28,7 +16,7 @@ export default function AdminEditPage() {
   });
 
   useEffect(() => {
-    const readOneDog = async () => {
+    const getOneDog = async () => {
       try {
         const res = await axios.get(`/dog/read/${dogId}`);
         const updatedDogData = res.data.existDog || {}; //เพราะมีบางอันค่าเป็น null แล้ว error
@@ -37,18 +25,8 @@ export default function AdminEditPage() {
         console.log(err);
       }
     };
-    readOneDog();
+    getOneDog();
   }, [dogId]); //ทำงานเมื่อมีการเปลี่ยนแปลงของ dogId
-
-  // const handleFormSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const updatedDogData = { ...oneDog };
-  //     await updateDog(updatedDogData, dogId);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
