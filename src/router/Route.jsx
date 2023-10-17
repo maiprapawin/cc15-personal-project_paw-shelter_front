@@ -11,6 +11,7 @@ import AdminCreatePage from "../pages/AdminCreatePage";
 import AdminEditPage from "../pages/AdminEditPage";
 import RedirectIfAuthenticated from "../features/auth/RedirectIfAuthenticated";
 import Authenticated from "../features/auth/Authenticated";
+import AdminAuthenticated from "../features/auth/AdminAuthenticated";
 
 const router = createBrowserRouter([
   {
@@ -45,9 +46,24 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "how-to-adopt", element: <HowToAdoptPage /> },
-      { path: "admin", element: <AdminPage /> },
-      { path: "admin/create", element: <AdminCreatePage /> },
-      { path: "admin/edit/:dogId", element: <AdminEditPage /> },
+      // { path: "admin", element: <AdminPage /> },
+      // { path: "admin/create", element: <AdminCreatePage /> },
+      // { path: "admin/edit/:dogId", element: <AdminEditPage /> },
+    ],
+  },
+  {
+    path: "/admin/",
+    element: (
+      <Authenticated>
+        <AdminAuthenticated>
+          <Layout />
+        </AdminAuthenticated>
+      </Authenticated>
+    ),
+    children: [
+      { path: "", element: <AdminPage /> },
+      { path: "create", element: <AdminCreatePage /> },
+      { path: "edit/:dogId", element: <AdminEditPage /> },
     ],
   },
 ]);

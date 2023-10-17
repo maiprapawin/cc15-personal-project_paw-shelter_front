@@ -3,8 +3,13 @@ import { useAuth } from "../../hooks/use-auth";
 
 export default function RedirectIfAuthenticated({ children }) {
   const { authUser } = useAuth();
-  if (authUser) {
+  if (authUser && authUser.isAdmin === false) {
     return <Navigate to="/" />;
   }
+
+  if (authUser && authUser.isAdmin === true) {
+    return <Navigate to="/admin" />;
+  }
+
   return children;
 }

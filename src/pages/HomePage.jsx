@@ -4,7 +4,7 @@ import useDog from "../hooks/use-dog";
 
 export default function HomePage() {
   const { allDogs } = useDog();
-  console.log(allDogs);
+  // console.log(allDogs);
   return (
     <div>
       <HomeBanner />
