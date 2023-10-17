@@ -3,20 +3,8 @@ import HomeBanner from "../features/dog/HomeBanner";
 import useDog from "../hooks/use-dog";
 
 export default function HomePage() {
-  // const [allDogs, setAllDogs] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get("/dog/read")
-  //     .then((res) => {
-  //       setAllDogs(res.data.dogs);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
   const { allDogs } = useDog();
-  // console.log(allDogs);
+  console.log(allDogs);
   return (
     <div>
       <HomeBanner />

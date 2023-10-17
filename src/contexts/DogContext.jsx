@@ -1,11 +1,9 @@
-// import { useParams } from "react-router-dom";
 import axios from "../config/axios";
 import { createContext, useEffect, useState } from "react";
 
 export const DogContext = createContext();
 
 export default function DogContextProvider({ children }) {
-  // const { dogId } = useParams();
   const [allDogs, setAllDogs] = useState([]);
   const [oneDog, setOneDog] = useState({
     dogName: "",
@@ -31,11 +29,12 @@ export default function DogContextProvider({ children }) {
     }
   };
 
-  // 2. READ/GET
-  // 2.1 Read all dogs
+  // 2. READ/GET all dogs
+
+  const getAllDogs = () => axios.get("dog/read");
+
   useEffect(() => {
-    axios
-      .get("dog/read")
+    getAllDogs()
       .then((res) => {
         setAllDogs(res.data.dogs);
       })
@@ -43,19 +42,6 @@ export default function DogContextProvider({ children }) {
         console.log(err);
       });
   }, []);
-
-  // 2.2 Read one dog
-  // useEffect(() => {
-  //   const readOneDog = async () => {
-  //     try {
-  //       const res = axios.get(`/dog/read/${dogId}`);
-  //       setOneDog(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   readOneDog();
-  // }, [dogId]); //ทำงานเมื่อมีการเปลี่ยนแปลงของ dogId
 
   // 3. UPDATE dog
   const updateDog = async (updatedDogData) => {
@@ -77,11 +63,15 @@ export default function DogContextProvider({ children }) {
         formData
       );
       console.log(res.data.dog);
-      // setAllDogs({...allDogs, ....res.data.dog}); //อัพเดทข้อมูล dog จากที่มีอยู่
       setOneDog({ ...oneDog, ...res.data.dog }); //อัพเดทข้อมูล dog จากที่มีอยู่
-      // setAllDogs([...allDogs, res.data.dog]); //อัพเดทข้อมูล dog จากที่มีอยู่
 
-      // console.log(formData);
+      getAllDogs()
+        .then((res) => {
+          setAllDogs(res.data.dogs);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
       console.log(err);
     }
