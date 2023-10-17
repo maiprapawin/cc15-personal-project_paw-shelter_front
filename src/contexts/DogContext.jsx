@@ -76,7 +76,8 @@ export default function DogContextProvider({ children }) {
         `/dog/update/${updatedDogData.id}`,
         formData
       );
-      setAllDogs({ ...allDogs, ...res.dogData }); //อัพเดทข้อมูล dog จากที่มีอยู่
+      console.log(res);
+      setAllDogs([...allDogs, ...res.data.dog]); //อัพเดทข้อมูล dog จากที่มีอยู่
       // console.log(formData);
     } catch (err) {
       console.log(err);
