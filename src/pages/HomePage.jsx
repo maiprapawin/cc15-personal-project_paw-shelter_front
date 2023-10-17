@@ -16,7 +16,7 @@ export default function HomePage() {
   // }, []);
 
   const { allDogs } = useDog();
-  console.log(allDogs);
+  // console.log(allDogs);
   return (
     <div>
       <HomeBanner />

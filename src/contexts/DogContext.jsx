@@ -7,12 +7,12 @@ export const DogContext = createContext();
 export default function DogContextProvider({ children }) {
   // const { dogId } = useParams();
   const [allDogs, setAllDogs] = useState([]);
-  // const [oneDog, setOneDog] = useState({
-  //   dogName: "",
-  //   gender: "",
-  //   breed: "",
-  //   description: "",
-  // });
+  const [oneDog, setOneDog] = useState({
+    dogName: "",
+    gender: "",
+    breed: "",
+    description: "",
+  });
 
   // 1. CREATE dog
   const createDog = async (newDogData) => {
@@ -76,8 +76,11 @@ export default function DogContextProvider({ children }) {
         `/dog/update/${updatedDogData.id}`,
         formData
       );
-      console.log(res);
-      setAllDogs([...allDogs, ...res.data.dog]); //อัพเดทข้อมูล dog จากที่มีอยู่
+      console.log(res.data.dog);
+      // setAllDogs({...allDogs, ....res.data.dog}); //อัพเดทข้อมูล dog จากที่มีอยู่
+      setOneDog({ ...oneDog, ...res.data.dog }); //อัพเดทข้อมูล dog จากที่มีอยู่
+      // setAllDogs([...allDogs, res.data.dog]); //อัพเดทข้อมูล dog จากที่มีอยู่
+
       // console.log(formData);
     } catch (err) {
       console.log(err);
@@ -98,8 +101,8 @@ export default function DogContextProvider({ children }) {
 
   const sharedObj = {
     allDogs,
-    // oneDog,
-    // setOneDog,
+    oneDog,
+    setOneDog,
     createDog,
     updateDog,
     deleteDog,

@@ -9,7 +9,7 @@ export default function AdminEditPage() {
   const { dogId } = useParams();
   const { updateDog } = useDog();
 
-  const [oneDog, setOneDog] = useState({
+  const [initialInput, setInitialInput] = useState({
     dogName: "",
     gender: "",
     breed: "",
@@ -21,7 +21,7 @@ export default function AdminEditPage() {
       try {
         const res = await axios.get(`/dog/read/${dogId}`);
         const updatedDogData = res.data.existDog || {}; //เพราะมีบางอันค่าเป็น null แล้ว error
-        setOneDog(updatedDogData);
+        setInitialInput(updatedDogData);
       } catch (err) {
         console.log(err);
       }
@@ -34,11 +34,11 @@ export default function AdminEditPage() {
     try {
       const updatedDogData = {
         id: dogId,
-        dogImage: oneDog.dogImage,
-        dogName: oneDog.dogName,
-        gender: oneDog.gender,
-        breed: oneDog.breed,
-        description: oneDog.description,
+        dogImage: initialInput.dogImage,
+        dogName: initialInput.dogName,
+        gender: initialInput.gender,
+        breed: initialInput.breed,
+        description: initialInput.description,
       };
       console.log(updatedDogData);
       await updateDog(updatedDogData);
@@ -47,12 +47,12 @@ export default function AdminEditPage() {
     }
   };
   const handleChangeInput = (e) => {
-    setOneDog({ ...oneDog, [e.target.name]: e.target.value });
+    setInitialInput({ ...initialInput, [e.target.name]: e.target.value });
   };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setOneDog({ ...oneDog, dogImage: file });
+    setInitialInput({ ...initialInput, dogImage: file });
   };
 
   return (
@@ -73,7 +73,7 @@ export default function AdminEditPage() {
               >
                 Dog Image
               </label>
-              <img src={oneDog.dogImage} alt={oneDog.dogName} />
+              <img src={initialInput.dogImage} alt={initialInput.dogName} />
               <InputBox
                 type="file"
                 accept="image/*"
@@ -90,9 +90,9 @@ export default function AdminEditPage() {
               </label>
               <InputBox
                 type="text"
-                placeholder={oneDog.dogName}
+                placeholder={initialInput.dogName}
                 name="dogName"
-                value={oneDog.dogName || ""}
+                value={initialInput.dogName || ""}
                 onChange={handleChangeInput}
               />
             </div>
@@ -105,9 +105,9 @@ export default function AdminEditPage() {
               </label>
               <InputBox
                 type="text"
-                placeholder={oneDog.gender}
+                placeholder={initialInput.gender}
                 name="gender"
-                value={oneDog.gender || ""}
+                value={initialInput.gender || ""}
                 onChange={handleChangeInput}
               />
             </div>
@@ -120,9 +120,9 @@ export default function AdminEditPage() {
               </label>
               <InputBox
                 type="text"
-                placeholder={oneDog.breed}
+                placeholder={initialInput.breed}
                 name="breed"
-                value={oneDog.breed || ""}
+                value={initialInput.breed || ""}
                 onChange={handleChangeInput}
               />
             </div>
@@ -134,9 +134,9 @@ export default function AdminEditPage() {
                 Description
               </label>
               <InputBox
-                placeholder={oneDog.description}
+                placeholder={initialInput.description}
                 name="description"
-                value={oneDog.description || ""}
+                value={initialInput.description || ""}
                 onChange={handleChangeInput}
               />
             </div>

@@ -5,7 +5,7 @@ import Button from "../auth/Button";
 import useDog from "../../hooks/use-dog";
 
 export default function AdminTable() {
-  const { allDogs } = useDog();
+  const { allDogs, deleteDog } = useDog();
 
   return (
     <table>
@@ -25,7 +25,12 @@ export default function AdminTable() {
               <Link to={`/admin/edit/${el.id}`}>
                 <Button bg="bg-[#00B633]" text="text-white" action="Edit" />
               </Link>
-              <Button bg="bg-[#FD0000]" text="text-white" action="Delete" />
+              <Button
+                bg="bg-[#FD0000]"
+                text="text-white"
+                action="Delete"
+                onClick={() => deleteDog(el.id)}
+              />
             </>
           }
         />
