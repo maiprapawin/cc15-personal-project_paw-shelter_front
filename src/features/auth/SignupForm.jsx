@@ -3,7 +3,7 @@ import Button from "./Button";
 import InputBox from "./InputBox";
 import Joi from "joi";
 import InputErrorMessage from "./InputErrorMessage";
-import { useAuth } from "../../hooks/use-auth";
+import useAuth from "../../hooks/use-auth";
 
 const registerSchema = Joi.object({
   firstName: Joi.string().trim().required(),

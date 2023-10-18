@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import Button from "./Button";
 import InputBox from "./InputBox";
-import { useAuth } from "../../hooks/use-auth";
+import useAuth from "../../hooks/use-auth";
 
 export default function LoginForm() {
   const [input, setInput] = useState({

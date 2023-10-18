@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
-import { useAuth } from "../../hooks/use-auth";
+import useAuth from "../../hooks/use-auth";
 import axios from "../../config/axios";
 
 export default function DogCardHeader({ dogObj, image }) {

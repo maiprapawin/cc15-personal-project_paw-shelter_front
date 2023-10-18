@@ -1,7 +1,7 @@
 import { FaPaw } from "react-icons/fa";
 import Menu from "./Menu";
 import Button from "../features/auth/Button";
-import { useAuth } from "../hooks/use-auth";
+import useAuth from "../hooks/use-auth";
 
 export default function Header() {
   const { logout } = useAuth();

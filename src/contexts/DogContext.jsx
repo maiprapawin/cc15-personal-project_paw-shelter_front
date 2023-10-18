@@ -1,9 +1,12 @@
 import axios from "../config/axios";
 import { createContext, useEffect, useState } from "react";
+import useAuth from "../hooks/use-auth";
 
 export const DogContext = createContext();
 
 export default function DogContextProvider({ children }) {
+  const { authUser } = useAuth();
+
   const [allDogs, setAllDogs] = useState([]);
   const [oneDog, setOneDog] = useState({
     dogName: "",
@@ -34,14 +37,16 @@ export default function DogContextProvider({ children }) {
   const getAllDogs = () => axios.get("dog/read");
 
   useEffect(() => {
-    getAllDogs()
-      .then((res) => {
-        setAllDogs(res.data.dogs);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    if (authUser) {
+      getAllDogs()
+        .then((res) => {
+          setAllDogs(res.data.dogs);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [authUser]);
 
   // 3. UPDATE dog
   const updateDog = async (updatedDogData) => {
