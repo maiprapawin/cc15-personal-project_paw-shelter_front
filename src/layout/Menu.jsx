@@ -7,7 +7,7 @@ const menus = [
 
 export default function Menu() {
   return (
-    <nav className="flex items-center bg-red-300 gap-6">
+    <nav className="flex items-center text-[20px] gap-6">
       {menus.map((el) => (
         <MenuItem key={el.id} to={el.to} name={el.name} />
       ))}

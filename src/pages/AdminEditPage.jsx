@@ -119,8 +119,6 @@ export default function AdminEditPage() {
               </div>
             </div>
           </div>
-
-          <div></div>
         </div>
       </form>
     </div>

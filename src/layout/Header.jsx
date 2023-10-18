@@ -7,17 +7,21 @@ export default function Header() {
   const { logout } = useAuth();
 
   return (
-    <header className="bg-[#FB7185] flex justify-between h-[80px] sticky top-0">
-      <div className="flex">
-        <FaPaw />
-        <div>
-          <h1>Paw Shelter</h1>
-          <h3>a shelter for homeless dogs</h3>
+    <header className="flex justify-between bg-[#FB7185] text-white font-bold h-[80px] sticky top-0">
+      <div className="flex ml-4">
+        <div className=" bg-white text-[32px] rounded-full text-black p-3 m-auto mr-4">
+          <FaPaw />
+        </div>
+        <div className="">
+          <h1 className="text-[28px]">Paw Shelter</h1>
+          <h3 className="text-[16px]">a shelter for homeless dogs</h3>
         </div>
       </div>
-      <Menu />
-      <div onClick={logout}>
-        <Button action="Log Out" />
+      <div className="flex items-center gap-20">
+        <Menu />
+        <div onClick={logout} className="pr-3">
+          <Button action="Log Out" />
+        </div>
       </div>
     </header>
   );

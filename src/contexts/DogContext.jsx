@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import axios from "../config/axios";
 import { createContext, useEffect, useState } from "react";
 import useAuth from "../hooks/use-auth";
@@ -27,6 +28,11 @@ export default function DogContextProvider({ children }) {
 
       const res = await axios.post("/dog/create", formData);
       setAllDogs((prev) => [...prev, res.data.dog]); //เพิ่มข้อมูล dog ใหม่ โดยไม่กระทบ dogs เดิม (prev = current allDogs state)
+
+      toast.success("Created Successfully", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -77,6 +83,11 @@ export default function DogContextProvider({ children }) {
         .catch((err) => {
           console.log(err);
         });
+
+      toast.success("Updated Successfully", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -89,6 +100,10 @@ export default function DogContextProvider({ children }) {
       if (res.status === 200) {
         setAllDogs((prev) => prev.filter((dog) => dog.id !== dogId)); //เอาเฉพาะ dogs ที่ไม่ใช่ dogId ที่ req มา
       }
+      toast.error("Deleted Successfully", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER,
+      });
     } catch (err) {
       console.log(err);
     }

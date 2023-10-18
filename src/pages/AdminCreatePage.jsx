@@ -81,8 +81,13 @@ export default function AdminCreatePage() {
               value={input.description || ""}
               onChange={handleChangeInput}
             />
-            <div className="flex items-center justify-between">
-              <Button action="Save" type="submit" />
+            <div className="text-center">
+              <Button
+                bg="bg-[#0369A1]"
+                text="text-white"
+                action="Save"
+                type="submit"
+              />
             </div>
           </div>
         </div>
