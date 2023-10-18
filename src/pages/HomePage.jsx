@@ -10,7 +10,7 @@ export default function HomePage() {
       <HomeBanner />
       <div className="bg-[#FDE047]">
         <div className="flex flex-col justify-center items-center">
-          <h2 className="text-[#F43F5E] font-bold text-[32px] text-center pt-12">
+          <h2 className="text-[#F43F5E] font-bold text-[48px] text-center pt-12">
             Available Dogs for Adoption
           </h2>
           <div className="grid grid-cols-3 pb-28">

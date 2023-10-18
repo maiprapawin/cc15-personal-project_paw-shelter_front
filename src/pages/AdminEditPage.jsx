@@ -56,7 +56,7 @@ export default function AdminEditPage() {
   };
 
   return (
-    <div className="bg-[#FDE047] h-[1200px]">
+    <div className="bg-[#FDE047]">
       <Link to="/admin">
         <Button bg="bg-[#0369A1]" text="text-white" action="Back" />
       </Link>
