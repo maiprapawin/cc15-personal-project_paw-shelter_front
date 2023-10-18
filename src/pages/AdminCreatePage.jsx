@@ -11,8 +11,8 @@ export default function AdminCreatePage() {
     dogImage: "",
     dogName: "",
     gender: "",
-    breed: " ",
-    description: " ",
+    breed: "",
+    description: "",
   });
 
   const handleChangeInput = (e) => {
@@ -47,80 +47,40 @@ export default function AdminCreatePage() {
       <form onSubmit={handleFormSubmit}>
         <div className="flex justify-center items-center h-full">
           <div className="w-full max-w-md">
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="dogImage"
-              >
-                Dog Image
-              </label>
-              <InputBox
-                type="file"
-                accept="image/*"
-                name="dogImage"
-                onChange={handleImageChange}
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="dogName"
-              >
-                Dog Name
-              </label>
-              <InputBox
-                type="text"
-                placeholder="Name"
-                name="dogName"
-                value={input.dogName}
-                onChange={handleChangeInput}
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="gender"
-              >
-                Gender
-              </label>
-              <InputBox
-                type="text"
-                placeholder="MALE or FEMALE only"
-                value={input.gender}
-                name="gender"
-                onChange={handleChangeInput}
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="breed"
-              >
-                Breed
-              </label>
-              <InputBox
-                type="text"
-                placeholder="Breed"
-                name="breed"
-                value={input.breed || ""}
-                onChange={handleChangeInput}
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="description"
-              >
-                Description
-              </label>
-              <InputBox
-                type="text"
-                placeholder="Description"
-                name="description"
-                value={input.description || ""}
-                onChange={handleChangeInput}
-              />
-            </div>
+            <InputBox
+              type="file"
+              accept="image/*"
+              name="dogImage"
+              onChange={handleImageChange}
+            />
+            <InputBox
+              type="text"
+              placeholder="Name"
+              name="dogName"
+              value={input.dogName}
+              onChange={handleChangeInput}
+            />
+            <InputBox
+              type="text"
+              placeholder="Gender (MALE or FEMALE only)"
+              name="gender"
+              value={input.gender}
+              onChange={handleChangeInput}
+            />
+            <InputBox
+              type="text"
+              placeholder="Breed"
+              name="breed"
+              value={input.breed || ""}
+              onChange={handleChangeInput}
+            />
+            <InputBox
+              type="text"
+              placeholder="Description"
+              name="description"
+              value={input.description || ""}
+              onChange={handleChangeInput}
+            />
             <div className="flex items-center justify-between">
               <Button action="Save" type="submit" />
             </div>
@@ -130,3 +90,87 @@ export default function AdminCreatePage() {
     </div>
   );
 }
+
+//  <form onSubmit={handleFormSubmit}>
+//    <div className="flex justify-center items-center h-full">
+//      <div className="w-full max-w-md">
+//        <div className="mb-6">
+//          <label
+//            className="block text-gray-700 text-sm font-bold mb-2"
+//            htmlFor="dogImage"
+//          >
+//            Dog Image
+//          </label>
+//          <InputBox
+//            type="file"
+//            accept="image/*"
+//            name="dogImage"
+//            onChange={handleImageChange}
+//          />
+//        </div>
+//        <div className="mb-6">
+//          <label
+//            className="block text-gray-700 text-sm font-bold mb-2"
+//            htmlFor="dogName"
+//          >
+//            Dog Name
+//          </label>
+//          <InputBox
+//            type="text"
+//            placeholder="Name"
+//            name="dogName"
+//            value={input.dogName}
+//            onChange={handleChangeInput}
+//          />
+//        </div>
+//        <div className="mb-6">
+//          <label
+//            className="block text-gray-700 text-sm font-bold mb-2"
+//            htmlFor="gender"
+//          >
+//            Gender
+//          </label>
+//          <InputBox
+//            type="text"
+//            placeholder="MALE or FEMALE only"
+//            value={input.gender}
+//            name="gender"
+//            onChange={handleChangeInput}
+//          />
+//        </div>
+//        <div className="mb-6">
+//          <label
+//            className="block text-gray-700 text-sm font-bold mb-2"
+//            htmlFor="breed"
+//          >
+//            Breed
+//          </label>
+//          <InputBox
+//            type="text"
+//            placeholder="Breed"
+//            name="breed"
+//            value={input.breed || ""}
+//            onChange={handleChangeInput}
+//          />
+//        </div>
+//        <div className="mb-6">
+//          <label
+//            className="block text-gray-700 text-sm font-bold mb-2"
+//            htmlFor="description"
+//          >
+//            Description
+//          </label>
+//          <InputBox
+//            type="text"
+//            placeholder="Description"
+//            name="description"
+//            value={input.description || ""}
+//            onChange={handleChangeInput}
+//          />
+//        </div>
+//        <div className="flex items-center justify-between">
+//          <Button action="Save" type="submit" />
+//        </div>
+//      </div>
+//    </div>
+//  </form>;

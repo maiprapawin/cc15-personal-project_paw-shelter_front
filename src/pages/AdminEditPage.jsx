@@ -46,6 +46,7 @@ export default function AdminEditPage() {
       console.log(err);
     }
   };
+
   const handleChangeInput = (e) => {
     setInitialInput({ ...initialInput, [e.target.name]: e.target.value });
   };
@@ -64,87 +65,62 @@ export default function AdminEditPage() {
         EDIT A DOG POST
       </h1>
       <form onSubmit={handleFormSubmit}>
-        <div className="flex justify-center items-center h-full">
-          {/* <div className="flex justify-center items-center h-full"> */}
-          <div className="w-full max-w-md">
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="dogImage"
-              >
-                Dog Image
-              </label>
+        <div className="flex justify-center items-center h-full pb-16">
+          <div className="flex justify-center gap-10 my-16">
+            <div className="flex items-center mb-6">
               <img src={initialInput.dogImage} alt={initialInput.dogName} />
+            </div>
+            <div className="flex flex-col justify-center items-center">
               <InputBox
                 type="file"
                 accept="image/*"
                 name="dogImage"
                 onChange={handleImageChange}
               />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="dogName"
-              >
-                Dog Name
-              </label>
               <InputBox
                 type="text"
-                placeholder={initialInput.dogName}
+                placeholder={initialInput.dogName || "Name (required)"}
                 name="dogName"
                 value={initialInput.dogName || ""}
                 onChange={handleChangeInput}
               />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="gender"
-              >
-                Gender
-              </label>
               <InputBox
                 type="text"
-                placeholder={initialInput.gender}
+                placeholder={
+                  initialInput.gender ||
+                  "Gender (required, MALE or FEMALE only)"
+                }
                 name="gender"
                 value={initialInput.gender || ""}
                 onChange={handleChangeInput}
               />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="breed"
-              >
-                Breed
-              </label>
               <InputBox
                 type="text"
-                placeholder={initialInput.breed}
+                placeholder={initialInput.breed || "Breed (optional)"}
                 name="breed"
                 value={initialInput.breed || ""}
                 onChange={handleChangeInput}
               />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="description"
-              >
-                Description
-              </label>
               <InputBox
-                placeholder={initialInput.description}
+                placeholder={
+                  initialInput.description || "Description (optional)"
+                }
                 name="description"
                 value={initialInput.description || ""}
                 onChange={handleChangeInput}
               />
-            </div>
-            <div className="flex items-center justify-between">
-              <Button action="Save" type="submit" />
+              <div className="text-center">
+                <Button
+                  bg="bg-[#0369A1]"
+                  text="text-white"
+                  action="Save"
+                  type="submit"
+                />
+              </div>
             </div>
           </div>
+
+          <div></div>
         </div>
       </form>
     </div>
