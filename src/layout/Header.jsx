@@ -2,9 +2,10 @@ import { FaPaw } from "react-icons/fa";
 import Menu from "./Menu";
 import Button from "../features/auth/Button";
 import useAuth from "../hooks/use-auth";
+import { Link } from "react-router-dom";
 
 export default function Header() {
-  const { logout } = useAuth();
+  const { authUser, logout } = useAuth();
 
   return (
     <header className="flex justify-between bg-[#FB7185] text-white font-bold h-[80px] sticky top-0">
@@ -17,8 +18,16 @@ export default function Header() {
           <h3 className="text-[16px]">a shelter for homeless dogs</h3>
         </div>
       </div>
+
       <div className="flex items-center gap-20">
         <Menu />
+        {authUser.isAdmin === true ? (
+          <Link to="/admin">
+            <Button action="Admin Home" />
+          </Link>
+        ) : (
+          ""
+        )}
         <div onClick={logout} className="pr-3">
           <Button action="Log Out" />
         </div>

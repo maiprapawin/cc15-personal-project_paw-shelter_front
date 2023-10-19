@@ -1,12 +1,12 @@
 export default function AdminTableHeader({ button = null }) {
   return (
     <thead>
-      <tr>
-        <th>dogImage</th>
-        <th>dogName</th>
-        <th>gender</th>
-        <th>breed?</th>
-        <th>description?</th>
+      <tr className="bg-[#A855F7] text-white">
+        <th>Dog Image</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Breed</th>
+        <th>Description</th>
         <th>{button}</th>
       </tr>
     </thead>
