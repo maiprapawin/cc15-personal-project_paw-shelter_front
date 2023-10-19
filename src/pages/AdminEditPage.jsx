@@ -58,16 +58,20 @@ export default function AdminEditPage() {
 
   return (
     <div className="bg-[#FDE047]">
-      <Link to="/admin">
-        <Button bg="bg-[#0369A1]" text="text-white" action="Back" />
-      </Link>
-      <h1 className="font-bold text-6xl text-[#7E22CE] text-center pt-16">
-        EDIT A DOG POST
-      </h1>
+      <div className="flex justify-center items-end">
+        <div className="mb-[8px] mr-6">
+          <Link to="/admin">
+            <Button bg="bg-[#0369A1]" text="text-white" action="Back" />
+          </Link>
+        </div>
+        <h1 className="font-bold text-6xl text-[#7E22CE] text-center pt-16">
+          EDIT A DOG POST
+        </h1>
+      </div>
       <form onSubmit={handleFormSubmit}>
         <div className="flex justify-center items-center h-full pb-16">
           <div className="flex justify-center gap-10 my-16">
-            <div className="flex items-center mb-6">
+            <div className="flex items-center mb-6 max-w-xl">
               <img src={initialInput.dogImage} alt={initialInput.dogName} />
             </div>
             <div className="flex flex-col justify-center items-center">

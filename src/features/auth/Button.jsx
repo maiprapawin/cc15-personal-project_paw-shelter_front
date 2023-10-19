@@ -4,10 +4,11 @@ export default function Button({
   action,
   onClick,
   padding = "px-[18px] py-[8px]",
+  margin,
 }) {
   return (
     <button
-      className={`${bg} ${text} ${padding} rounded-md font-semibold`}
+      className={`${bg} ${text} ${padding} ${margin} rounded-md font-semibold`}
       onClick={onClick}
     >
       {action}

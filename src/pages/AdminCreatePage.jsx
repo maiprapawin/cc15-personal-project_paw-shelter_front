@@ -34,17 +34,21 @@ export default function AdminCreatePage() {
   };
 
   return (
-    <div className="bg-[#FDE047] h-[1200px] ">
-      <Link to="/admin">
-        <Button bg="bg-[#0369A1]" text="text-white" action="Back" />
-      </Link>
-      <h1 className="font-bold text-6xl text-[#7E22CE] text-center pt-16">
-        CREATE A DOG POST
-      </h1>
+    <div className="bg-[#FDE047]">
+      <div className="flex justify-center items-end mb-4">
+        <div className="mb-[8px] mr-6">
+          <Link to="/admin">
+            <Button bg="bg-[#0369A1]" text="text-white" action="Back" />
+          </Link>
+        </div>
+        <h1 className="font-bold text-6xl text-[#7E22CE] text-center pt-16">
+          CREATE A DOG POST
+        </h1>
+      </div>
 
       <form onSubmit={handleFormSubmit}>
         <div className="flex justify-center items-center h-full">
-          <div className="w-full max-w-md">
+          <div className="w-full max-w-md mb-20">
             <InputBox
               type="file"
               accept="image/*"
