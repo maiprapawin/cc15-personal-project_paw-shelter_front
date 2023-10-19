@@ -39,7 +39,6 @@ export default function DogContextProvider({ children }) {
   };
 
   // 2. READ/GET all dogs
-
   const getAllDogs = () => axios.get("dog/read");
 
   useEffect(() => {
