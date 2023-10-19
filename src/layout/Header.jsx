@@ -12,7 +12,7 @@ export default function Header() {
         <div className=" bg-white text-[32px] rounded-full text-black p-3 m-auto mr-4">
           <FaPaw />
         </div>
-        <div className="">
+        <div className="leading-[26px] m-auto">
           <h1 className="text-[28px]">Paw Shelter</h1>
           <h3 className="text-[16px]">a shelter for homeless dogs</h3>
         </div>
