@@ -46,9 +46,6 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "how-to-adopt", element: <HowToAdoptPage /> },
-      // { path: "admin", element: <AdminPage /> },
-      // { path: "admin/create", element: <AdminCreatePage /> },
-      // { path: "admin/edit/:dogId", element: <AdminEditPage /> },
     ],
   },
   {

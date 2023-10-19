@@ -8,7 +8,7 @@ export default function AdminTable() {
   const { allDogs, deleteDog } = useDog();
 
   return (
-    <table className="bg-slate-400 m-auto">
+    <table className="m-auto">
       <AdminTableHeader
         button={
           <Link to={"/admin/create"}>
@@ -28,7 +28,7 @@ export default function AdminTable() {
               <Button
                 bg="bg-[#FD0000]"
                 text="text-white"
-                action="Delete"
+                action="Del"
                 onClick={() => deleteDog(el.id)}
               />
             </>

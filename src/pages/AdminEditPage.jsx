@@ -40,7 +40,7 @@ export default function AdminEditPage() {
         breed: initialInput.breed,
         description: initialInput.description,
       };
-      console.log(updatedDogData);
+      // console.log(updatedDogData);
       await updateDog(updatedDogData);
     } catch (err) {
       console.log(err);
