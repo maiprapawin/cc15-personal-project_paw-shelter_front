@@ -11,5 +11,10 @@ export default function RedirectIfAuthenticated({ children }) {
     return <Navigate to="/admin" />;
   }
 
+  // authUser && authUser.isAdmin === true ? (
+  //   <Navigate to="/admin" />
+  // ) : (
+  //   <Navigate to="/" />
+  // );
   return children;
 }

@@ -45,9 +45,9 @@ const process = [
 
 export default function HowToAdoptPage() {
   return (
-    <div>
+    <div className="bg-[#7DD3FC]">
       <AdoptionBanner />
-      <div className="bg-[#7DD3FC]">
+      <div>
         <h2 className="text-[#7E22CE] font-bold text-[48px] text-center pt-12">
           How to Adopt a Dog
         </h2>
@@ -60,6 +60,15 @@ export default function HowToAdoptPage() {
               detail={el.detail}
             />
           ))}
+        </div>
+        <div className="bg-[#FDE047] text-center p-20 w-[1102px] m-auto">
+          <h1>Contact Us</h1>
+          <div>
+            Paw Shelter <br /> Address: 123 Happy Building, Doggo Street,
+            Bangkok 10123 <br />
+            Tel: 081-234-5678 <br />
+            Email: pawshelter@mail.com
+          </div>
         </div>
       </div>
     </div>

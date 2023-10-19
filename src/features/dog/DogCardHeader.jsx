@@ -29,8 +29,8 @@ export default function DogCardHeader({ dogObj, image }) {
   return (
     <>
       <div
-        className={`text-[30px] text-white absolute ml-[300px] mt-2 ${
-          isLiked ? "text-red-600" : "text-[white]"
+        className={`text-[30px] absolute ml-[300px] mt-2 ${
+          isLiked ? "text-red-600" : "text-white"
         } `}
         onClick={handleClickLike}
       >

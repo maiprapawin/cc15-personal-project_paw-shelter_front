@@ -81,7 +81,7 @@ export default function AdminEditPage() {
                 type="text"
                 placeholder={initialInput.dogName || "Name (required)"}
                 name="dogName"
-                value={initialInput.dogName || ""}
+                value={initialInput.dogName}
                 onChange={handleChangeInput}
               />
               <InputBox
@@ -91,14 +91,14 @@ export default function AdminEditPage() {
                   "Gender (required, MALE or FEMALE only)"
                 }
                 name="gender"
-                value={initialInput.gender || ""}
+                value={initialInput.gender}
                 onChange={handleChangeInput}
               />
               <InputBox
                 type="text"
                 placeholder={initialInput.breed || "Breed (optional)"}
                 name="breed"
-                value={initialInput.breed || ""}
+                value={initialInput.breed}
                 onChange={handleChangeInput}
               />
               <InputBox
@@ -106,7 +106,7 @@ export default function AdminEditPage() {
                   initialInput.description || "Description (optional)"
                 }
                 name="description"
-                value={initialInput.description || ""}
+                value={initialInput.description}
                 onChange={handleChangeInput}
               />
               <div className="text-center">

@@ -3,10 +3,11 @@ export default function Button({
   text = "text-[#5B21B6]",
   action,
   onClick,
+  padding = "px-[18px] py-[8px]",
 }) {
   return (
     <button
-      className={`${bg} ${text} px-[18px] py-[8px] rounded-md font-semibold`}
+      className={`${bg} ${text} ${padding} rounded-md font-semibold`}
       onClick={onClick}
     >
       {action}
