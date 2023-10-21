@@ -1,4 +1,6 @@
-# CodeCamp15 - Prapawin Terdsirote (Mai) - Personal Project
+# CodeCamp15 - Personal Project (Paw Shelter)
+
+## Prapawin Terdsirote (Mai)
 
 # Developer Tools Used
 
@@ -33,8 +35,6 @@
 7. Completed user flow
 
 ---
-
-Paw Shelter (Dog Adoption)
 
 # Background and Significance
 
