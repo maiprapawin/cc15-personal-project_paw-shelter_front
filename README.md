@@ -2,7 +2,11 @@
 
 # Developer Tools Used
 
-1. React
+1. Package Manager
+
+   - pnpm
+
+2. Frontend = React
 
    - Vite.js
    - TailwindCSS
@@ -10,23 +14,23 @@
    - React-router-dom, react-toastify
    - Joi
 
-2. Node.js/Express.js
+3. Backend = Express.js
 
    - CORS
 
-3. Security & Authentication
+4. Security & Authentication
 
    - JWT (Jason Web Token)
    - Authorization/ User roles (user and admin)
    - Bcrypt
 
-4. Database
+5. Database
 
    - Prisma
    - MySQL Workbench
 
-5. System function - CRUD (Create, Read, Update, Delete)
-6. Completed user flow
+6. System function - CRUD (Create, Read, Update, Delete)
+7. Completed user flow
 
 ---
 
