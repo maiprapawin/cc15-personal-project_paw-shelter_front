@@ -4,8 +4,11 @@
 
 1. React
 
+   - Vite.js
    - TailwindCSS
    - Axios
+   - React-router-dom, react-toastify
+   - Joi
 
 2. Node.js/Express.js
 
